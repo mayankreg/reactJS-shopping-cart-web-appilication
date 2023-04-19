@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { success, warning } from "./notification";
 
 //  importing components & actions
 import util from "../util";
@@ -9,7 +10,7 @@ import { addToCart, removeFromCart } from "../actions/cartActions";
   // rendering items in cart 
   // showing price * quantity
   // showing total amount
-  
+
 class Basket extends Component {
   render() {
     const { cartItems } = this.props;
@@ -33,7 +34,7 @@ class Basket extends Component {
                     style={{ float: "right" }}
                     className="btn btn-danger btn-xs"
                     onClick={(e) =>
-                      this.props.removeFromCart(this.props.cartItems, item)
+                      {warning(); this.props.removeFromCart(this.props.cartItems, item)}
                     }
                   >
                     X

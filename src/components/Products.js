@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import util from "../util";
-
+import { success, warning } from "./notification";
 //  importing actions
 import { addToCart } from "../actions/cartActions";
 import { fetchProducts } from "../actions/productActions";
@@ -12,6 +12,7 @@ class Products extends Component {
   componentDidMount() {
     this.props.fetchProducts();
   }
+  
   render() {
     //  rendering each product
     const productItems = this.props.products.map((product) => (
@@ -19,7 +20,7 @@ class Products extends Component {
         <div className="thumbnail text-center">
           <a
             href={`#${product.id}`}
-            onClick={(e) => this.props.addToCart(this.props.cartItems, product)}
+            onClick={(e) => {success(); this.props.addToCart(this.props.cartItems, product)}}
           >
             <img src={`products/${product.sku}_2.jpg`} alt={product.title} />
             <p>{product.title}</p>

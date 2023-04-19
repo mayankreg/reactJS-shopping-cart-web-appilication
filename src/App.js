@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
+import { Notifications } from "react-push-notification";
+import addNotification from "react-push-notification";
 
 // importing components
 import Products from "./components/Products";
@@ -14,6 +16,10 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="container">
+          <div className="float-start">
+            <Notifications />
+          </div>
+
           <h1>E-commerce Shopping Cart Application</h1>
           <hr />
           <div className="row">
