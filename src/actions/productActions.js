@@ -8,7 +8,7 @@ import {
 
 //  action to fetch products from json file in public folder
 export const fetchProducts = () => (dispatch) => {
-  fetch("https://127.0.0.1:8000/products")
+  fetch("http://127.0.0.1:8000/products")
     .then((res) => res.json())
     .catch((err) =>
       fetch("db.json")
